@@ -43,7 +43,6 @@ foreach var in a b c {
 	
 foreach var of varlist a_* b_* c_* {
 	local `var'_label: variable label `var'
-	di "``var'_label'"
 }
 collapse (sum) a_* b_* c_*, by(i12 i13 i14 i15 i16 i17 i18 i19 i20 section)
 foreach var of varlist a_* b_* c_* {
