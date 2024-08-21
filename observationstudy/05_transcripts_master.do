@@ -2,6 +2,7 @@
 // Stores text as stata dataset. Preserving all line breaks and text structure
 //----------------------------------------------------------------------------//
 clear all 
+
 * Set up directories 
 global root 	"/Users/steffenerickson"
 global code 	"Documents/GitHub/SERA/observationstudy"
