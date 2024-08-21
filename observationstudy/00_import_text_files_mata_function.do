@@ -7,13 +7,13 @@
 
 mata 
 struct myproblem {
-	struct file_record scalar 		fr
-	string scalar 			  		line
-	real scalar 			 		output_fh
+	struct file_record scalar fr
+	string scalar line
+	real scalar output_fh
 }
 struct file_record {
-	string scalar		id 
-	string scalar		text
+	string scalar id 
+	string scalar text
 }
 void driver(string scalar filespec, string scalar output_filename)
 {
@@ -29,11 +29,11 @@ void driver(string scalar filespec, string scalar output_filename)
 }
 void process_file(string scalar filename, real scalar output_fh)
 {
-	struct myproblem scalar   pr
+	struct myproblem scalar pr
 	
 	initialize_record(pr.fr)
 	pr.output_fh = output_fh
-	pr.fr.id     = filename
+	pr.fr.id = filename
 	storetext(pr)
 	output_record(pr)
 }
@@ -44,7 +44,7 @@ void initialize_record(struct file_record scalar fr)
 }
 void storetext(struct myproblem scalar pr) 
 {
-	real scalar		fh
+	real scalar fh
 	
 	pr.fr.text = ""
 	fh = fopen(pr.fr.id, "r")
