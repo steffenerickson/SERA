@@ -30,7 +30,6 @@ void driver(string scalar filespec, string scalar output_filename)
 void process_file(string scalar filename, real scalar output_fh)
 {
 	struct myproblem scalar pr
-	
 	initialize_record(pr.fr)
 	pr.output_fh = output_fh
 	pr.fr.id = filename
