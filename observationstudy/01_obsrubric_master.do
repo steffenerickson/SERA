@@ -20,9 +20,7 @@ frame obsrubric : codebook
 //----------------------------------------------------------------------------//
 capture program drop dummieswithlabels
 program dummieswithlabels, nclass 
-
 	syntax varlist(max=1)
-	
 	capture drop `varlist'_*
 	qui tab `varlist', gen(`varlist'_)
 	local vlname: value label `varlist'
@@ -79,9 +77,9 @@ mat list w
 mat T = w'*true*w
 mat E = w'*error*w
 
-
 di T[1,1] / (T[1,1] + E[1,1]) // proportion of variance attributed to between-observation differences in the first section. Good variance! 
 di E[1,1] / (T[1,1] + E[1,1]) // proportion of variance attributed to raters disagreeing within an obseravtion. Bad variance :( 
+
 
 // Who got the Opportunity?
 drop c_1
