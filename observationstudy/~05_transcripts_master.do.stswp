@@ -2,13 +2,22 @@
 // Stores text as stata dataset. Preserving all line breaks and text structure
 //----------------------------------------------------------------------------//
 clear all 
+version 18
 
 * Set up directories 
-global root 	"/Users/steffenerickson"
-global code 	"Documents/GitHub/SERA/observationstudy"
-global data 	"Box Sync/ECR Observation Data/2023-2024 Final Data/transcripts"
-global output 	"Desktop"
-
+local office 1 
+if `office' == 1 {
+	global root 	"C:/Users/cns8vg"
+	global code 	"GitHub/SERA/observationstudy"
+	global data 	"Box Sync/ECR Observation Data/2023-2024 Final Data/transcripts"
+	global output 	"Desktop"
+}
+if `office' == 0 {
+	global root 	"/Users/steffenerickson"
+	global code 	"Documents/GitHub/SERA/observationstudy"
+	global data 	"Box Sync/ECR Observation Data/2023-2024 Final Data/transcripts"
+	global output 	"Desktop"
+}
 * Text processing function 
 include ${root}/${code}/00_import_text_files_mata_function.do
 
@@ -26,12 +35,22 @@ mata a = st_sdata(37,"text")
 mata printf(a)
 
 * Pull into Python 
+local varlist filename text
+python: from sfi import Data
+python: import pandas as pd
+python: df =  pd.DataFrame(Data.get('`varlist''))
+python: transcript37 = df.iloc[36, 1]
+python: print(transcript37.replace('\\n', '\n'))
+python: df.head(5)
+
+* or 
 save ${root}/${output}/data.dta , replace
 python: import pandas as pd
-python: path = '/Users/steffenerickson/Desktop'
+python: path = 'C:/Users/cns8vg/Desktop'
 python: df = pd.read_stata(f'{path}/data.dta')
 python: first_row_second_column = df.iloc[36, 1]
 python: print(first_row_second_column.replace('\\n', '\n'))
+
 
 
 
