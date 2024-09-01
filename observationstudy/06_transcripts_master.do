@@ -5,21 +5,25 @@ clear all
 version 18
 
 * Set up directories 
-local office 1 
+local office 0
 if `office' == 1 {
 	global root 	"C:/Users/cns8vg"
 	global code 	"GitHub/SERA/observationstudy"
 	global data 	"Box Sync/ECR Observation Data/2023-2024 Final Data/transcripts"
+	global programs "GitHub/stata_programs"
 	global output 	"Desktop"
+
 }
 if `office' == 0 {
 	global root 	"/Users/steffenerickson"
 	global code 	"Documents/GitHub/SERA/observationstudy"
 	global data 	"Box Sync/ECR Observation Data/2023-2024 Final Data/transcripts"
+	global programs "/Users/steffenerickson/Documents/GitHub/stata_programs"
 	global output 	"Desktop"
 }
+
 * Text processing function 
-include ${root}/${code}/00_import_text_files_mata_function.do
+include "${programs}/import_text_files_mata_function.do"
 
 * structure text data for import
 cd "${root}/${data}"
