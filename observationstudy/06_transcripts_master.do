@@ -11,7 +11,7 @@ if `office' == 1 {
 	global code 	"GitHub/SERA/observationstudy"
 	global data 	"Box Sync/ECR Observation Data/2023-2024 Final Data/transcripts"
 	global programs "GitHub/stata_programs"
-	global output 	"Desktop"
+	global output 	"Box Sync/ECR Observation Data/2023-2024 Final Data/Quant Team - Results"
 
 }
 if `office' == 0 {
@@ -19,7 +19,7 @@ if `office' == 0 {
 	global code 	"Documents/GitHub/SERA/observationstudy"
 	global data 	"Box Sync/ECR Observation Data/2023-2024 Final Data/transcripts"
 	global programs "/Users/steffenerickson/Documents/GitHub/stata_programs"
-	global output 	"Desktop"
+	global output 	"Box Sync/ECR Observation Data/2023-2024 Final Data/Quant Team - Results" 
 }
 
 * Text processing function 
@@ -33,10 +33,15 @@ mata: driver("*.txt","${root}/${output}/transcripts_freeformat_outputfile.txt") 
 *import to stata
 clear
 infile strL filename strL text using "${root}/${output}/transcripts_freeformat_outputfile.txt"
+export delimited using "${root}/${output}/transcripts.csv" , replace
 
 * example 
-mata a = st_sdata(37,"text")	 
+mata a = st_sdata(1,"text")	 
 mata printf(a)
+
+
+mata b = st_sdata(67,"text")	 
+mata printf(b)
 
 * Pull into Python 
 local varlist filename text
@@ -58,5 +63,5 @@ python: print(first_row_second_column.replace('\\n', '\n'))
 
 
 
-
+// python 
 

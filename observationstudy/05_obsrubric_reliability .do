@@ -12,7 +12,7 @@ global rawdata "Quant Team - Data Exports"
 global cleandata "Quant Team - Clean Data"
 global results "Quant Team - Results"
 
-qui include ${programs}/mvgstudy.ado
+include ${programs}/mvgstudy.ado
 use "${root}/${cleandata}/obsrubric.dta" , clear 
 
 capture program drop dummieswithlabels
