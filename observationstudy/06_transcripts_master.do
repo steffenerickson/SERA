@@ -5,7 +5,7 @@ clear all
 version 18
 
 * Set up directories 
-local office 1
+local office 0
 if `office' == 1 {
 	global root 	"C:/Users/cns8vg"
 	global code 	"GitHub/SERA/observationstudy"
@@ -170,17 +170,6 @@ variables = ['filename', 'classification', 'person', 'timestamp','line_str']
 for var in variables:
     df_sentences[var] = df_filtered[var].repeat(df_sentences.groupby(level=0).size()).values
 
-# Lines that need to be manually reclassified - this will need to be updated as new files come in
-# Apply the conditions to locate the rows to be updated
-condition = (
-    (df_sentences['filename'] == "01_0101_G4_L03_transcript.txt") & 
-    (df_sentences['person'].str.contains('speaker', case=False, na=False))
-)
-# Update the 'person' column
-df_sentences.loc[condition, 'person'] = "Teacher 01_0101"
-# Update the 'classification' column to 1 for the same rows
-df_sentences.loc[condition, 'classification'] = 1
-
 # -----------------------------------------------------------------------------#
 #  Tokenize Sentences
 # -----------------------------------------------------------------------------#
@@ -239,9 +228,6 @@ frame data {
 	python: import sfi 
 	python: df_tokens.sfi.Data.store()
 }
-
-
-
 
 import sys
 from sfi import Data, Frame

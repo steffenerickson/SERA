@@ -19,5 +19,3 @@ frame obsrubric : qui do ${code}/04_obsrubric_reshape.do
 frame obsrubric : save "${root}/${cleandata}/obsrubric.dta" , replace 
 
 
-
-
