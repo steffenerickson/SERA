@@ -65,17 +65,6 @@ frame change scores
 drop diff_b_1
 
 
-foreach var of varlist diff* {
-	replace `var' = 0 if `var' == . & i14 != "Module 3"
-}
-
-replace i13 = "04" if i13 == ""
-replace i12 = "University of Texas Austin" if i12 == ""
-
-
-//order diff_a_2 diff_a_1 diff_a_3
-
-
 //----------------------------------------------------------------------------//
 // Report Program Code 
 //----------------------------------------------------------------------------//
@@ -219,8 +208,4 @@ program get_report , nclass
 	putdocx save "`document'", replace
 end 
 
-
-
-
 get_report diff_* if i13 == "04" & i14 == "Module 1" , doc(module1)
-get_report diff_* if i13 == "04" & i14 == "Module 2" , doc(module2)
