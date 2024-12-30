@@ -9,7 +9,9 @@ local office 0
 if `office' == 1 {
 	global root 	"C:/Users/cns8vg"
 	global code 	"GitHub/SERA/observationstudy"
-	global data 	"Box Sync/ECR Observation Data/2023-2024 Final Data/transcripts"
+	global data 	"Box Sync/ECR Observation Data/2023-2024 Final Data"
+	global cleandata "Quant Team - Clean Data"
+	global transcripts "transcripts"
 	global programs "GitHub/stata_programs"
 	global output 	"Box Sync/ECR Observation Data/2023-2024 Final Data/Quant Team - Results"
 
@@ -17,7 +19,9 @@ if `office' == 1 {
 if `office' == 0 {
 	global root 	"/Users/steffenerickson"
 	global code 	"Documents/GitHub/SERA/observationstudy"
-	global data 	"Box Sync/ECR Observation Data/2023-2024 Final Data/transcripts"
+	global data 	"Box Sync/ECR Observation Data/2023-2024 Final Data"
+	global cleandata "Quant Team - Clean Data"
+	global transcripts "transcripts"
 	global programs "/Users/steffenerickson/Documents/GitHub/stata_programs"
 	global output 	"Box Sync/ECR Observation Data/2023-2024 Final Data/Quant Team - Results" 
 }
@@ -28,27 +32,33 @@ if `office' == 0 {
 //----------------------------------------------------------------------------//
 //----------------------------------------------------------------------------//
 
+*mvgstudy command 
+include "${programs}/mvgstudy.ado"
+
 * Text processing function 
 include "${programs}/import_text_files_mata_function.do"
+do "${root}/${code}/00_direct_observation_list.do"
 
 * structure text data for import
-cd "${root}/${data}"
+cd "${root}/${data}/${transcripts}"
 capture erase "${root}/${output}/transcripts_freeformat_outputfile.txt"
 mata: driver("*.txt","${root}/${output}/transcripts_freeformat_outputfile.txt") // text processing function 
 
 *import to stata
-clear
-infile strL filename strL text using "${root}/${output}/transcripts_freeformat_outputfile.txt"
-export delimited using "${root}/${output}/transcripts.csv" , replace
+mkf transcripts
+frame transcripts: infile strL filename strL text using "${root}/${output}/transcripts_freeformat_outputfile.txt"
 
-* example 
-mata a = st_sdata(1,"text")	 
-mata printf(a)
+*Split and clean 
+frame transcripts: do "${root}/${code}/07_clean_transcripts.do"
 
+* Merge observation Scores 
+mkf obsrubric 
+frame obsrubric : use "${root}/${data}/${cleandata}/obsrubric.dta" , clear 
+frame copy transcripts transcripts_obsrubric , replace
+frame transcripts_obsrubric: do "${root}/${code}/08_merge_directobs.do"
+frame transcripts_obsrubric: save "${root}/${data}/${cleandata}/transcripts_obsrubric.dta" , replace
 
-mata b = st_sdata(67,"text")	 
-mata printf(b)
-
+/*
 //----------------------------------------------------------------------------//
 //----------------------------------------------------------------------------//
 // Using Python In Stata 

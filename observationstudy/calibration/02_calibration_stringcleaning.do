@@ -64,7 +64,7 @@ foreach v of var * {
 	local a = `v'[1]
 	label variable `v' "`a'"
 }
-
+// this is where the code is broken - ask ling 
 foreach v of var q371_1-q383_2_1 {
 	local old : var label `v'
 	local new = "`old'" + " 1"

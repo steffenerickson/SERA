@@ -11,7 +11,7 @@ qui include ${programs}/mvgstudy.ado
 
 mkf   obsrubric 
 frame change obsrubric
-frame obsrubric : import excel "${root}/${rawdata}/Crowdsource Science Observation Form - CALIBRATION MODULES 2024-2025_October 22, 2024_07.05.xlsx", sheet("Sheet0") firstrow case(lower) clear
+frame obsrubric : import excel "${root}/${rawdata}/Crowdsource Science Observation Form - CALIBRATION MODULES 2024-2025_November 17, 2024_15.36.xlsx", sheet("Sheet0") firstrow case(lower) clear
 
 frame obsrubric : drop startdate enddate status ipaddress progress durationinseconds
 frame obsrubric : do ${code}/02_calibration_stringcleaning.do

@@ -42,8 +42,7 @@ split filename , parse(_)
 drop filename5 filename6
 replace filename4 = substr(filename4,1,3)
 gen teacher = filename1 + filename2
-gen n = _n
-collapse n , by(teacher filename4)
+
 
 
 
