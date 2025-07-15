@@ -119,7 +119,7 @@ sum avg if directobsnum  == 2 & teacher == "030101"
 local avg1 : display %6.1f `r(mean)'
 sum ratio2 if directobsnum  == 2 & teacher == "030101"
 local ratio1 : display %6.1f `r(mean)'
-twoway (scatter word_count linenum if teacher == "030101" & directobsnum == 2 & teachertalk == 1 ) ///
+twoway (scatter word_count linenum if teacher == "030101" & directobsnum == 2 & teachertalk == 1 , mcolor(green%100) ) ///
        (scatter  word_count linenum if teacher == "030101" & directobsnum == 2 &  word_count > 1 & (grouptalk ==1 | studenttalk ==1  | wholeclasstalk==1 ) , mcolor(blue%100)) ///
 	   , name(g1, replace)  legend(order(1 "Teacher Talk" 2 "Students" )) title("Teacher 4: Low Quality (q score  =`avg1', st/tt =`ratio1')")
 
@@ -135,7 +135,7 @@ sum avg if teacher == "050101" & directobsnum == 1
 local avg2 : display %6.1f `r(mean)'
 sum ratio2 if teacher == "050101" & directobsnum == 1
 local ratio2 : display %6.1f `r(mean)'
-twoway (scatter word_count linenum if teacher == "050101" & directobsnum == 1 & teachertalk == 1) ///
+twoway (scatter word_count linenum if teacher == "050101" & directobsnum == 1 & teachertalk == 1 , mcolor(green%100) ) ///
 (scatter word_count linenum if teacher == "050101" & directobsnum == 1 & word_count > 1 & (grouptalk == 1 | studenttalk == 1 | wholeclasstalk == 1), mcolor(blue%100)) ///
 , name(g2, replace) legend(order(1 "Teacher Talk" 2 "Students")) title("Teacher 2: Med. Quality (q score =`avg2', st/tt =`ratio2')")
 
@@ -150,9 +150,13 @@ sum avg  if directobsnum  == 2 & teacher == "140102"
 local avg3 : display %6.1f `r(mean)'
 sum ratio2  if directobsnum  == 2 & teacher == "140102"
 local ratio3 : display %6.1f `r(mean)'
-twoway (scatter word_count linenum if teacher == "140102" & directobsnum == 2 & teachertalk == 1) ///
+twoway (scatter word_count linenum if teacher == "140102" & directobsnum == 2 & teachertalk == 1 ,  mcolor(green%100) ) ///
 (scatter  word_count linenum if teacher == "140102" & directobsnum == 2 &  word_count > 1 & (grouptalk ==1 | studenttalk ==1  | wholeclasstalk==1 ) , mcolor(blue%100)) ///
 , name(g3, replace)  legend(order(1 "Teacher Talk" 2 "Students" )) title("Teacher 3: High Quality (q score  =`avg3', st/tt =`ratio3')")
+
+
+grc1leg2 g1 g2 g3 , altshrink legendfrom(g1) title("Student vs. Teacher Talk")  ycommon note("st/tt is the ratio of student talk to teacher talk") //rows(1) 
+
 
 tempvar n 
 gen `n' = _n
@@ -160,20 +164,13 @@ sum word_count if directobsnum   == 2 & teacher == "140102"
 sum `n' if directobsnum  == 2 & teacher == "140102" & word_count == r(max)
 local a3 = text[r(mean)]
 mata a3 = st_local("a3")
-
-
-grc1leg2 g1 g2 g3 , legendfrom(g1) title("Student vs. Teacher Talk")  ycommon note("st/tt is the ratio of student talk to teacher talk") //rows(1) 
 mata textsamples = a1 \ a2 \ a3 
 mata textsamples
-
-
-
 
 
 //---------------------------------------------------------------------------//
 // Modeling relationships 
 //---------------------------------------------------------------------------//
-
 
 collapse  (mean) totalinenum avgwordcount avgwordcountstu i21 i24 otr  ratio1 ratio2 tot_teachertalk  tot_studenttalk tot_wholeclasstalk i48 i49 i50 i51 avg scew scew2 avg_word_count_teacher avg_word_count_student ratio3, by(teacher lessonnum /*grade*/ site)
 keep if otr != .                                                                                                                                        
