@@ -237,7 +237,7 @@ frame plot2 {
 		name(g1, replace) nooutsides note("") text(`m1' 1 "`m1'") text(`m2' 50 "`m2'")
 	graph box otr_recipient_2_perstudent otr_recipient_4, /// 
 		legend(order(1 "Average number per Non-Target"2 "Target Student") rows(2) pos(6)) ///
-		ylabel(0(1)10, nogrid angle(horizontal)) ///
+		ylabel(0(1)20, nogrid angle(horizontal)) ///
 		ytitle("Number of OTRs") ///
 		title("Average Per Non-Target Student vs. Target Student ", size(small)) ///
 		name(g3, replace) nooutsides note("") text(`m3' 1 "`m3'") text(`m2' 50 "`m2'")
@@ -304,18 +304,18 @@ frame plot4 {
 	graph box otr_type_* if otr_recipient == 1, /// 
 		legend(order(1 "Hands on Activity" 2 "Physical Gesture" 3 "Read" 4 "Verbal" 5 "Write/Draw" ) rows(1) pos(6)) ///
 		title("Non-Target Student", size(medium)) name(g1, replace)  nooutsides  note("") ///
-		ylabel(0(5)60, nogrid angle(horizontal)) ///
+		ylabel(0(5)80, nogrid angle(horizontal)) ///
 		ytitle("Number of OTRs") 
 	graph box otr_type_* if otr_recipient == 2, /// 
 		legend(order(1 "Hands on Activity" 2 "Physical Gesture" 3 "Read" 4 "Verbal" 5 "Write/Draw") rows(1) pos(6)) ///
 		title("Group Response", size(medium)) name(g2, replace) nooutsides note("") ///
-		ylabel(0(5)60, nogrid angle(horizontal)) ///
+		ylabel(0(5)80, nogrid angle(horizontal)) ///
 		ytitle("Number of OTRs") 
 	
 	graph box otr_type_* if otr_recipient == 3, /// 
 		legend(order(1 "Hands on Activity" 2 "Physical Gesture" 3 "Read" 4 "Verbal" 5 "Write/Draw" ) rows(1) pos(6)) ///
 		title("Target Student", size(medium)) name(g3, replace) nooutsides note("") ///
-		ylabel(0(5)60, nogrid angle(horizontal)) ///
+		ylabel(0(5)80, nogrid angle(horizontal)) ///
 		ytitle("Number of OTRs") 
 	
 	grc1leg2 g1 g2 g3 , ycommon altshrink rows(1) title("Types of OTRs by Recipient", size(medium))
@@ -329,6 +329,9 @@ frame plot4 {
 
 frame copy all plot5 , replace
 frame plot5 {
+	
+	sum quality1
+	sum quality2
 
 	foreach var of varlist quality*   {
 		local `var'_label: variable label `var'
@@ -339,13 +342,13 @@ frame plot5 {
 	}
 	
 	qui sum quality1, det
-	local m1 = round(r(p50),.01)
+	local m1 = round(r(mean),.01)
 	qui sum quality2, det 
-	local m2 = round(r(p50),.01)
+	local m2 = round(r(mean),.01)
 	qui sum quality3, det 
-	local m3 = round(r(p50),.01)
+	local m3 = round(r(mean),.01)
 	qui sum quality4, det 
-	local m4 = round(r(p50),.01)
+	local m4 = round(r(mean),.01)
 	graph box quality* , /// 
 		legend(order(1 "Overall student interest in the science lesson" ///
 		2 "Target student interest in the science lesson"  ///

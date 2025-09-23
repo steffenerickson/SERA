@@ -39,9 +39,11 @@ forvalues i = 1/26 {
 	replace q411_`i' = q414_`i'_1 if  q411_`i' == ""
 	replace q451_`i' = q454_`i'_1 if  q451_`i' == ""
 	replace q491_`i' = q494_`i'_1 if  q491_`i' == ""
+	replace q531_`i' = q534_`i'_1 if  q531_`i' == ""
 	
 }
-drop q374_*_1 q414_*_1 q454_*_1 q494_*_1
+
+drop q374_*_1 q414_*_1 q454_*_1 q494_*_1 q534_*_1
 
 foreach v of var * {
 	local a = `v'[1]
@@ -67,6 +69,11 @@ foreach v of var q48-q503_2_1 {
 	local new = "`old'" + " 4"
 	label var `v' "`new'"	
 }
+foreach v of var q51-q543_2_1 {
+	local old : var label `v'
+	local new = "`old'" + " 5"
+	label var `v' "`new'"	
+}
 
 foreach v of var * {	
 	local string : var label `v'
@@ -78,7 +85,7 @@ foreach v of var * {
 			local check2 = strpos("`instance'", "`:word `i' of `c(ALPHA)''") 
 			if `check2' > 0  local second `i'
 		}
-		forvalues i = 1/4 {
+		forvalues i = 1/5 {
 			local check = strpos("`session'", "`i'") 
 			if `check' > 0  local third `i'
 		}
@@ -93,7 +100,7 @@ foreach v of var * {
 			local check2 = strpos("`instance'", "`:word `i' of `c(ALPHA)''") 
 			if `check2' > 0  local second `i'
 		}
-		forvalues i = 1/4 {
+		forvalues i = 1/5 {
 			local check = strpos("`session'", "`i'") 
 			if `check' > 0  local third `i'
 		}
@@ -108,7 +115,7 @@ foreach v of var * {
 			local check2 = strpos("`instance'", "`:word `i' of `c(ALPHA)''") 
 			if `check2' > 0  local second `i'
 		}
-		forvalues i = 1/4 {
+		forvalues i = 1/5 {
 			local check = strpos("`session'", "`i'") 
 			if `check' > 0  local third `i'
 		}
@@ -141,7 +148,14 @@ foreach v of var q48 q501_1-q503_2_1 {
 	rename `v' d`i'_4
 	local++i
 }
+local i = 1
+foreach v of var q52 q541_1-q543_2_1 {
+	rename `v' d`i'_5
+	local++i
+}
+
 drop in 1
 drop if i1 == "False"
 
 label variable i12 "partner site"
+
