@@ -1,91 +1,130 @@
 
+input str40  observer  str40  obsround str40 lessonids str40 sitename 
+"01" "1" "01_0101_G4_L06_obs01" "University of Virginia"
+"01" "2" "01_0101_G4_L07_obs01" "University of Virginia"
+"01" "3" "01_0101_G4_L08_obs01" "University of Virginia"
+"02" "2" "01_0101_G4_L07_obs02" "University of Virginia"
+"03" "1" "02_0101_G4_L03_obs03" "University of Texas Austin"
+"02" "2" "02_0101_G4_L05_obs02" "University of Texas Austin"
+"03" "2" "02_0101_G4_L05_obs03" "University of Texas Austin"
+"04" "3" "02_0101_G4_L12_obs04" "University of Texas Austin"
+"03" "1" "02_0102_G5_L05_obs03" "University of Texas Austin"
+"03" "2" "02_0102_G5_L08_obs03" "University of Texas Austin"
+"03" "3" "02_0102_G5_L13_obs03" "University of Texas Austin"
+"04" "3" "02_0102_G5_L13_obs04" "University of Texas Austin"
+"02" "1" "02_0201_G5_L01_obs02" "University of Texas Austin"
+"02" "2" "02_0201_G5_L05_obs02" "University of Texas Austin"
+"02" "3" "02_0201_G5_L09_obs02" "University of Texas Austin"
+"04" "3" "02_0201_G5_L09_obs04" "University of Texas Austin"
+"01" "1" "03_0101_G5_L04_obs01" "Delaware State University"
+"01" "2" "03_0101_G5_L09_obs01" "Delaware State University"
+"01" "3" "03_0101_G5_L10_obs01" "Delaware State University"
+"02" "3" "03_0101_G5_L10_obs02" "Delaware State University"
+"02" "1" "04_0101_G4_L07_obs02" "Michigan State University"
+"02" "2" "04_0101_G4_L13_obs02" "Michigan State University"
+"02" "3" "04_0101_G4_L18_obs02" "Michigan State University"
+"01" "3" "04_0101_G4_L18_obs01" "Michigan State University"
+"01" "1" "05_0101_G4_L04_obs01" "SUNY Buffalo State University" 
+"01" "2" "05_0101_G4_L08_obs01" "SUNY Buffalo State University"
+"01" "3" "05_0101_G4_L12_obs01" "SUNY Buffalo State University"
+"02" "3" "05_0101_G4_L12_obs02" "SUNY Buffalo State University"
+"01" "1" "06_0201_G5_L01_obs01" "University of Arkansas Pine Bluff"
+"01" "2" "06_0201_G5_L05_obs01" "University of Arkansas Pine Bluff"
+"01" "3" "06_0201_G5_L07_obs01" "University of Arkansas Pine Bluff"
+"01" "1" "06_0202_G5_L02_obs01" "University of Arkansas Pine Bluff"
+"01" "2" "06_0202_G5_L??_obs01" "University of Arkansas Pine Bluff"
+"01" "3" "06_0202_G5_L12_obs01" "University of Arkansas Pine Bluff"
+"02" "1" "07_0101_G5_L01_obs01" "University of California Riverside"
+"02" "2" "07_0101_G5_L08_obs01" "University of California Riverside"
+"02" "3" "07_0101_G5_L12_obs01" "University of California Riverside"
+"01" "1" "08_0101_G4_L02_obs01" "University of Nevada Las Vegas"
+"01" "2" "08_0101_G4_L05_obs01" "University of Nevada Las Vegas"
+"01" "3" "08_0101_G4_L10_obs01" "University of Nevada Las Vegas"
+"02" "3" "08_0101_G4_L10_obs02" "University of Nevada Las Vegas"
+"01" "1" "08_0101_G5_L03_obs01" "University of Nevada Las Vegas"
+"01" "2" "08_0101_G5_L06_obs01" "University of Nevada Las Vegas"
+"01" "3" "08_0101_G5_L10_obs01" "University of Nevada Las Vegas"
+"02" "3" "08_0101_G5_L10_obs02" "University of Nevada Las Vegas"
+"01" "1" "09_0101_G5_L02_obs01" "University of North Carolina Wilmington"
+"02" "1" "09_0101_G5_L02_obs02" "University of North Carolina Wilmington"
+"01" "2" "09_0101_G5_L03_obs01" "University of North Carolina Wilmington"
+"03" "2" "09_0101_G5_L03_obs03" "University of North Carolina Wilmington"
+"01" "3" "09_0101_G5_L05_obs01" "University of North Carolina Wilmington"
+"03" "3" "09_0101_G5_L05_obs03" "University of North Carolina Wilmington"
+"01" "1" "09_0102_G4_L04_obs01" "University of North Carolina Wilmington"
+"02" "1" "09_0102_G4_L04_obs02" "University of North Carolina Wilmington"
+"01" "2" "09_0102_G4_L08_obs01" "University of North Carolina Wilmington"
+"03" "2" "09_0102_G4_L08_obs03" "University of North Carolina Wilmington"
+"01" "3" "09_0102_G4_L11_obs01" "University of North Carolina Wilmington"
+"03" "3" "09_0102_G4_L11_obs03" "University of North Carolina Wilmington"
+"01" "1" "10_0101_G4_L04_obs01" "University of Pittsburgh"
+"01" "2" "10_0101_G4_L08_obs01" "University of Pittsburgh"
+"01" "3" "10_0101_G4_L10_obs01" "University of Pittsburgh"
+"02" "3" "10_0101_G4_L10_obs02" "University of Pittsburgh"
+"01" "1" "10_0201_G4_L??_obs01" "University of Pittsburgh"
+"01" "2" "10_0201_G4_L06_obs01" "University of Pittsburgh"
+"01" "3" "10_0201_G4_L11_obs01" "University of Pittsburgh"
+"02" "3" "10_0201_G4_L11_obs02" "University of Pittsburgh"
+"01" "1" "11_0101_G5_L03_obs01" "University of Utah"
+"02" "1" "11_0101_G5_L03_obs02" "University of Utah"
+"01" "2" "11_0101_G5_L07_obs01" "University of Utah"
+"02" "2" "11_0101_G5_L07_obs02" "University of Utah"
+"01" "3" "11_0101_G5_L08_obs01" "University of Utah"
+"02" "3" "11_0101_G5_L08_obs02" "University of Utah"
+"02" "1" "12_0101_G4_L05_obs02" "Wichita State University"
+"02" "2" "12_0101_G4_L10_obs02" "Wichita State University"
+"01" "3" "12_0101_G4_L14_obs01" "Wichita State University"
+"02" "3" "12_0101_G4_L14_obs02" "Wichita State University"
+"01" "1" "12_0103_G5_L03_obs01" "Wichita State University"
+"02" "1" "12_0103_G5_L03_obs02" "Wichita State University"
+"02" "2" "12_0103_G5_L11_obs02" "Wichita State University"
+"02" "3" "12_0103_G5_L16_obs02" "Wichita State University"
+"02" "1" "12_0105_G4_L03_obs02" "Wichita State University"
+"01" "2" "12_0105_G4_L12_obs01" "Wichita State University"
+"02" "2" "12_0105_G4_L12_obs02" "Wichita State University"
+"02" "3" "12_0105_G4_L16_obs02" "Wichita State University"
+"01" "1" "12_0106_G4_L05_obs01" "Wichita State University"
+"01" "2" "12_0106_G4_L12_obs01" "Wichita State University"
+"01" "3" "12_0106_G4_L16_obs01" "Wichita State University"
+"02" "3" "12_0106_G4_L16_obs02" "Wichita State University"
+"01" "1" "13_0101_G4_L01_obs01" "Brigham Young University"
+"01" "2" "13_0101_G4_L05_obs01" "Brigham Young University"
+"01" "3" "13_0101_G4_L11_obs01" "Brigham Young University"
+"01" "4" "13_0101_G4_L12_obs01" "Brigham Young University"
+"02" "4" "13_0101_G4_L12_obs02" "Brigham Young University"
+"01" "1" "13_0201_G5_L02_obs01" "Brigham Young University"
+"02" "2" "13_0201_G5_L08_obs02" "Brigham Young University"
+"01" "3" "13_0201_G5_L12_obs01" "Brigham Young University"
+"01" "4" "13_0201_G5_L13_obs01" "Brigham Young University"
+"02" "4" "13_0201_G5_L13_obs02" "Brigham Young University"
+"01" "1" "14_0101_G4_L01_obs01" "Washington State University"
+"01" "2" "14_0101_G4_L07_obs01" "Washington State University"
+"02" "2" "14_0101_G4_L07_obs02" "Washington State University"
+"01" "3" "14_0101_G4_L10_obs01" "Washington State University"
+"01" "1" "14_0102_G5_L02_obs01" "Washington State University"
+"01" "2" "14_0102_G5_L07_obs01" "Washington State University"
+"01" "3" "14_0102_G5_L12_obs01" "Washington State University"
+"02" "3" "14_0102_G5_L12_obs02" "Washington State University"
+"02" "1" "16_0101_G5_L01_obs02" "University of Missouri"
+"02" "3" "16_0101_G5_L07_obs02" "University of Missouri"
+"03" "3" "16_0101_G5_L07_obs03" "University of Missouri"
+"02" "2" "16_0102_G5_L01_obs02" "University of Missouri"
+"01" "1" "18_0101_G4_L04_obs01" "Texas Christian University"
+"01" "2" "18_0101_G4_L08_obs01" "Texas Christian University"
+"01" "3" "18_0101_G4_L11_obs01" "Texas Christian University"
+"02" "3" "18_0101_G4_L11_obs02" "Texas Christian University"
+"01" "1" "18_0101_G5_L04_obs01" "Texas Christian University"
+"01" "2" "18_0101_G5_L08_obs01" "Texas Christian University"
+"01" "3" "18_0101_G5_L11_obs01" "Texas Christian University"
+"02" "3" "18_0101_G5_L11_obs02" "Texas Christian University"
+end 
+
+split lessonids , parse(_)
+rename (lessonids1 lessonids2 lessonids3 lessonids4) (partnersite teacher grade lesson)
+egen counts = count(lessonids) , by(partnersite teacher obsround observer)
+gen gradeformerge = "M" if counts == 1
+replace gradeformerge = substr(grade,2,1) if counts == 2
+drop lessonids5 lessonids counts 
 
 
-global files		 	  ///
-01_0101_G4_L06            ///
-01_0101_G4_L07            ///
-01_0101_G4_L08            ///
-02_0101_G4_L03            ///
-02_0101_G4_L05            ///
-02_0101_G4_L12            ///
-02_0102_G5_L05            ///
-02_0102_G5_L08            ///
-02_0102_G5_L13            ///
-02_0201_G5_L05            ///
-03_0101_G5_L04            ///
-03_0101_G5_L09            ///
-03_0101_G5_L10            ///
-04_0101_G4_L07            ///
-04_0101_G4_L13            ///
-04_0101_G4_L18            ///
-05_0101_G4_L04            ///
-05_0101_G4_L08            ///
-05_0101_G4_L12            ///
-06_0201_G5_L01            ///
-06_0201_G5_L05            ///
-06_0201_G5_L07            ///
-06_0202_G5_L02            ///
-06_0202_G5_L12            ///
-07_0101_G5_L01            ///
-07_0101_G5_L08            ///
-07_0101_G5_L12            ///
-08_0101_G4_L02            ///
-08_0101_G4_L05            ///
-08_0101_G4_L10            ///
-08_0101_G5_L03            ///
-08_0101_G5_L10            ///
-09_0101_G5_L02            ///
-09_0101_G5_L03            ///
-09_0101_G5_L05            ///
-09_0102_G4_L04_part1      ///
-09_0102_G4_L04_part2      ///
-09_0102_G4_L08_part1      ///
-09_0102_G4_L08_part2      ///
-09_0102_G4_L11_part1      ///
-09_0102_G4_L11_part2      ///
-09_0102_G4_L11_part3      ///
-10_0101_G4_L04            ///
-10_0101_G4_L08            ///
-10_0101_G4_L10            ///
-10_0201_G4_L06            ///
-10_0201_G4_L11            ///
-11_0101_G5_L03            ///
-11_0101_G5_L07            ///
-11_0101_G5_L08            ///
-12_0101_G4_L05            ///
-12_0101_G4_L10            ///
-12_0101_G4_L14            ///
-12_0103_G5_L06            ///
-12_0103_G5_L11            ///
-12_0105_G4_L03            ///
-12_0105_G4_L12            ///
-12_0105_G4_L16            ///
-12_0106_G4_L05            ///
-12_0106_G4_L12            ///
-12_0106_G4_L16            ///
-13_0101_G4_L01            ///
-13_0101_G4_L05            ///
-13_0101_G4_L12            ///
-13_0201_G5_L02            ///
-13_0201_G5_L08            ///
-13_0201_G5_L12            ///
-13_0201_G5_L13            ///
-14_0101_G4_L01            ///
-14_0101_G4_L07            ///
-14_0101_G4_L10            ///
-14_0102_G5_L02            ///
-14_0102_G5_L07            ///
-14_0102_G5_L12            ///
-16_0101_G5_L01            ///
-16_0101_G5_L07_part1      ///
-16_0101_G5_L07_part2      ///
-16_0102_G5_L01            ///
-16_0103_G4_L01            ///
-16_0103_G4_L05            ///
-18_0101_G4_L04            ///
-18_0101_G4_L08            ///
-18_0101_G4_L11            ///
-18_0101_G5_L04            ///
-18_0101_G5_L08            ///
-18_0101_G5_L11        
-            
+
